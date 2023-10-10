@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grade Converter</title>
+  </head>
+  <body>
+    <main>
+      <h1>Show letter grade</h1>
+      <script>
+        const MINGRADE = 0          //  Lowest  allowable grade
+        const MAXGRADE = 100        //  Highest allowable grade
+
+        let numberGrade = 0         //  Must be between 0 and 100
+        let letterGrade = ""        //  Will be A, B, C, D, or F
+
+        //  Read in number grade
+        do {
+          numberGrade = parseInt(
+            prompt(
+              "Enter number grade from 0 through 100\nOr Enter 999 to end program now."
+            )
+          )
+
+          //    Calculate letter grade
+          if (numberGrade >= 88) {
+            letterGrade = "A"
+          } else if (numberGrade >= 80) {
+            letterGrade = "B"
+          } else if (numberGrade >= 68) {
+            letterGrade = "C"
+          } else if (numberGrade >= 60) {
+            letterGrade = "D"
+          } else {
+            letterGrade = "F"
+          }
+
+          //    If the numberGrade was between 0 - 100,
+          //    display the number grade and the letter grade
+          if (numberGrade >= MINGRADE && numberGrade <= MAXGRADE) {
+            let html = `<p>Number Grade: ${numberGrade}\nLetter Grade: ${letterGrade}</p>`
+            document.write(html)
+          }
+          //    Check to see if program should now end.
+        } while (numberGrade !== 999)
+      </script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sum of Numbers</title>
+  </head>
+  <body>
+    <main>
+      <h1>Sum of Numbers</h1>
+      <script>
+        const MINNUMBER = 1
+        const MAXNUMBER = 100
+
+        let topNumber = 0
+        let again = ""
+
+        do {
+          do {
+            //  Input their top number
+            topNumber = parseInt(
+              prompt(
+                "Enter any top number to sum\nNumber must be between 1 and 100"
+              )
+            )
+
+            //  Check for non-numeric or out-of-range input
+            if (
+              isNaN(topNumber) ||
+              topNumber < MINNUMBER ||
+              topNumber > MAXNUMBER
+            ) {
+              alert("Please enter a number between 1 and 100")
+            }
+          } while (
+            isNaN(topNumber) ||
+            topNumber < MINNUMBER ||
+            topNumber > MAXNUMBER
+          )
+
+          //  We have inputted a number between 1 and 100.
+          //  So figure out the sum of all numbers between
+          //  1 and the topNumber and print out that sum.
+          let sum = 0
+          for (let lcv = 1; lcv <= topNumber; ++lcv) {
+            sum += lcv
+          }
+
+          let html = `<p>The sum of number from 1 to ${topNumber} is: ${sum}</p>`
+          document.write(html)
+
+          again = prompt("Run program again", "Y")
+        } while (again === "y" || again === "Y")
+      </script>
+    </main>
+  </body>
+</html>
